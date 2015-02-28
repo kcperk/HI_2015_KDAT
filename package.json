@@ -1,0 +1,24 @@
+{
+  "name": "HI_2015_KDAT",
+  "version": "1.0.0",
+  "description": "The official repository for our HackIllinois project <br />\r Contributers: <br />\r Kevin Perkins <br />\r Atul Nambudiri <br />\r Tarun Raj <br />\r David Chen <br />",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.12.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kcperk/HI_2015_KDAT.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kcperk/HI_2015_KDAT/issues"
+  },
+  "homepage": "https://github.com/kcperk/HI_2015_KDAT"
+}
