@@ -1,0 +1,119 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>This is a one page portfolio site created by EPick web Design.</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="foundation-icons/foundation-icons.css" />
+    <script src="js/vendor/modernizr.js"></script>
+    
+
+</head>
+
+<body>
+    <div id="top"></div>
+    <div class="contain-to-grid sticky">
+        <nav class="top-bar" data-topbar>
+            <ul class="title-area">
+                <li class="name">
+                    <h1>
+                        <a href="#">InkWaves</a>
+                    </h1>
+                </li>
+                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                <li class="toggle-topbar menu-icon">
+                    <a href="#">
+                        <span>Menu</span>
+                    </a>
+                </li>
+            </ul>
+            <section class="top-bar-section">
+                <!-- Right Nav Section -->
+                <ul id="nav" class="right">
+                    <li>
+                        <a href="file:///C:/Users/Tarun/Desktop/inkWaves/index.html">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#compose">Compose</a>
+                    </li>
+                   
+                </ul>
+
+            </section>
+        </nav>
+    </div>
+   
+
+    <section id="write">
+        <div> </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <label> Write your Letter
+                    <textarea placeholder="small-12.columns" rows='30' draggable="false"></textarea>
+                </label>
+
+                <style type="text/css">
+                .centerDiv
+                {
+                    margin-top:0;
+        margin-right:auto;
+        margin-bottom:0;
+        margin-left:auto;
+                }
+                </style>
+
+
+            </div>
+
+
+        <a href="#" class="button radius">Expanded Button</a>
+        </div>
+
+
+    </section>
+   
+        <div class="copy">
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="large-4 pull-1 columns text-center">
+                        <p>&copy; InkWaves is a product of penp.al</p>
+                    </div>
+                    <div class="large-7 push-2 columns text-center">
+                        <!-- Please Leave this link out of respect for the designer -->
+                        <p>Designed By:
+                            <a href="https://tarunraj.me">Tarun Web Design</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
+    <script>
+        $(function() {
+            $('a[href*=#]:not([href=#])').click(function() {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
