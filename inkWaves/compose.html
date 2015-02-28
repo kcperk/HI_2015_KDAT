@@ -41,29 +41,37 @@
                         <a href="/index.html">Home</a>
                     </li>
 
+                    
                     <li>
 
-                        <a href="#" data-reveal-id="myModal">Login</a>
+                        <a href="#" data-reveal-id="myModal">Login/Signup</a>
 
                         <div id="myModal" class="reveal-modal tiny" data-reveal>
                         
                             <div class = "login">
+                                <input type = "text" placeholder = "Username " />
+                                <input type = "password" placeholder = "Password" />
+                                <a href="#" class="button"> Login </a> 
+                                <a href="#" data-reveal-id="secondModal" class="secondary button">Sign Up</a>
+                            </div>
+ 
+                        </div>                            
+                            <!-- <a class="close-reveal-modal">&#215;</a> */ -->
+                        
+
+                        <div id="secondModal" class="reveal-modal tiny" data-reveal>
+                            
+                            <div class = "login">
+                            <p> Pick a User Name and Password </p>
                             <input type = "text" placeholder = "Username " />
                             <input type = "password" placeholder = "Password" />
-                            <a href="#" class="button round small"> Login </a> 
+                            <input type = "password" placeholder = "Confirm Password" />
+                            <a href="#" class="button"> Register </a> 
+                            <a href="#" data-reveal-id="myModal" class="secondary button">Log In</a>
                             </div>
                             
-                            <!-- <a class="close-reveal-modal">&#215;</a> */ -->
                         </div>
-
                     </li>
-
-
-
-                    <li>
-                        <a href="/register.html">Register</a>
-                    </li>
-
                 </ul>
 
             </section>
