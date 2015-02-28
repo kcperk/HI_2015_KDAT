@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+var db = require('./db.js')
 var app = express()
 
 var port = process.env.PORT || 1337;
@@ -9,7 +10,7 @@ app.use('/', express.static(path.join(__dirname + '/inkWaves')));
 
 // Route for everything else.
 app.get('*', function(req, res){
-  res.send('Hello World');
+  res.send(db.url);
 });
 
 app.listen(port);
