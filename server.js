@@ -9,4 +9,4 @@ function handleRequest(request, response) {
 }
 
 http.createServer(handleRequest).listen(8888);
-console.log("Server is up");
+console.log("Server is up);
