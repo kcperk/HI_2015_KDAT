@@ -1,16 +1,30 @@
-var express = require('express');
-var path = require('path');
-var app = express()
+var express  = require('express');
+var mongoose = require('mongoose');
+var passport = require('passport');
+var session  = require('express-session');
+var bodyParser = require('body-parser');
 
-var port = process.env.PORT || 1337;
 
-// Serve static files
-app.use('/', express.static(path.join(__dirname + '/inkWaves')));
+var database = require('./db.js');
 
-// Route for everything else.
-app.get('*', function(req, res){
-  res.send('Hello World');
-});
+var app      = express();
+mongoose.connect(database.url);
+
+var port     = process.env.PORT || 1337;
+
+//Setup Passport to save sessions
+app.use(session({
+  secret: 'sosecret',  // session secret
+  resave: false,
+  saveUninitialized: false}));
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(bodyParser.urlencoded({ extended: false }));
+
+
+
+require('./routes.js')(app, passport);
+require('./passport.js')(passport);
 
 app.listen(port);
 console.log("Server is up");

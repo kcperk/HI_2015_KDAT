@@ -4,9 +4,13 @@
   "description": "The official repository for our HackIllinois project <br />\r Contributers: <br />\r Kevin Perkins <br />\r Atul Nambudiri <br />\r Tarun Raj <br />\r David Chen <br />",
   "main": "server.js",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "express": "^4.12.0",
+    "express-session": "^1.10.3",
     "mongodb": "^1.4.32",
-    "mongoose": "^3.8.24"
+    "mongoose": "^3.8.24",
+    "passport": "^0.2.1",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {},
   "scripts": {
