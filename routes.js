@@ -54,17 +54,7 @@ module.exports = function(app, passport) {
   }));
 
   app.get('/', function(req, res) {
-    logged = 0;
-    username = "";
-    if(req.isAuthenticated()) {
-      console.log(req.session);
-      console.log('In');
-      logged = 1;
-      username = req.user.login
-      console.log(logged);
-      console.log(username);
-    }
-    res.render('index.ejs', {'loggedIn' : logged, 'username' : username});
+    res.redirect('/main');
   });
 
   // Route for everything else.
