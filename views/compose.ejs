@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   
     <!-- Title -->
-    <title>Compose Letter </title>
+    <title>Compose Letter</title>
   
     <!-- Required javascript -->
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -15,15 +15,12 @@
     <link href="css/penplate.css" rel="stylesheet" type="text/css">
     <script src="js/min/penplate.min.js"></script>
     
-   
-    
-
 
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/custom.css" />
     <link rel="stylesheet" href="foundation-icons/foundation-icons.css" />
   <!--  <script src="js/vendor/modernizr.js"></script>
-  <!--  <script src="js/vendor/fastclick.js" />
+    <script src="js/vendor/fastclick.js" />
     <script src="js/foundation/foundation.js" />
     <script src="js/foundation/foundation.reveal.js"></script> -->
 
@@ -113,14 +110,11 @@
 
   <!-- Execute Penplate -->
  <script>
-jquery(function(jquery){
-jquery('.penplate').penplate({
-breakpoint: '700',
-heading_1_tag : 'h3',
-heading_2_tag : 'h4',
-controls : ['bold', 'italics', 'underline', 'heading_1', 'heading_2', 'quote', 'link']
+
+$(document).ready(function(){
+$('.penplate').penplate();
 });
-});
+
 </script>   
 
 </body>
