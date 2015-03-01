@@ -1,5 +1,5 @@
 var Message = require('./models/messages.js');
-var Users = require('./models/user.js');
+var User = require('./models/user.js');
 var express = require('express');
 var path = require('path');
 
@@ -7,7 +7,7 @@ module.exports = function(app, passport) {
 
   app.get('/compose', loggedIn, function(req, res) {
     username = req.user.login
-    return addUsers(sender, res, 0, 0);
+    return addUsers(username, res, 0, 0);
   });
 
   app.post('/send', function(req, res) {
@@ -29,13 +29,14 @@ module.exports = function(app, passport) {
   });
 
   var addUsers = function(username, res, submit, success) {
-    Users.count({ 'login' :  {'$ne': username }}, function (err, count) {
+    User.count({ 'login' :  {'$ne': username }}, function (err, count) {
       var t = Math.floor((Math.random() * count));
-      User.find({ 'login' :  {'$ne': username }}).skip(t).next(), function(err, user) {
-        res.render('compose.html', {'username' : username, 'submit' : submit, 'success' : success, 'other' : other});
-      }
-    });
-  };
+      console.log(t);
+      User.findOne({ 'login' :  {'$ne': username }}, function(err, user1) {
+        res.render('compose.html', {'username' : username, 'submit' : submit, 'success' : success, 'other' : user1});
+      });
+    }
+  )};
 
 
   function loggedIn(req, res, next) {
