@@ -2,8 +2,7 @@ var express = require('express');
 var path = require('path');
 
 module.exports = function(app, passport) {
-  app.use(express.static(__dirname + '/inkWaves'));
-
+  
   //Main page
   app.get('/main', loggedIn, function(req, res) {
     logged = 0;
@@ -56,6 +55,8 @@ module.exports = function(app, passport) {
   app.get('/', function(req, res) {
     logged = 0;
     username = "";
+    console.log("Hello")
+    console.log("req.user");
     if(req.isAuthenticated()) {
       console.log(req.session);
       console.log('In');
@@ -64,9 +65,10 @@ module.exports = function(app, passport) {
       console.log(logged);
       console.log(username);
     }
-    res.render('index.ejs', {'loggedIn' : logged, 'username' : username});
+    res.render('index.ejs', {'logged' : logged, 'username' : username});
   });
 
+  app.use(express.static(__dirname + '/inkWaves'));
   // Route for everything else.
   app.get('*', function(req, res){
     res.send('404 File Not found');

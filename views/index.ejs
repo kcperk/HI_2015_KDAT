@@ -55,9 +55,6 @@
 
                     <% if (logged === 0) { %>
                       <li>
-                        <p><%= logged %></p>
-                      </li>
-                      <li>
                       	<a href="#" data-reveal-id="myModal">Login/Signup</a>
 
                           <div id="myModal" class="reveal-modal tiny" data-reveal>
@@ -93,7 +90,6 @@
                           </div>
                       </li>
                     <% } else {%>
-
                       <li>
                         <p><%= username %></p>
                       </li>
@@ -115,9 +111,12 @@
             <div class="large-12 columns">
                 <h1> We Love to Connect </h1>
                 <p class="text-center">
+                  <% if (logged === 1) { %>
                     <a href="/compose" class="large round button">Compose</a>
+                  <% } else {%>
+                    <a href="#" data-reveal-id= "myModal" class="large round button">Compose</a>
+                  <% } %>
                 </p>
-
             </div>
         </div>
     </section>
