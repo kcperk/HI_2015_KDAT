@@ -2,20 +2,27 @@ var express = require('express');
 var path = require('path');
 
 module.exports = function(app, passport) {
-  
+
   //Main page
   app.get('/main', loggedIn, function(req, res) {
     logged = 0;
     username = "";
     if(req.isAuthenticated()) {
-      console.log(req.session);
-      console.log('In');
       logged = 1;
       username = req.user.login
-      console.log(logged);
-      console.log(username);
     }
-    res.render('index.ejs', {'loggedIn' : logged, 'username' : username});
+    res.render('index.ejs', {'logged' : logged, 'username' : username});
+  });
+
+  //Inbox
+  app.get('/inbox', loggedIn, function(req, res) {
+    logged = 0;
+    username = "";
+    if(req.isAuthenticated()) {
+      logged = 1;
+      username = req.user.login
+    }
+    res.render('inbox.ejs', {'logged' : logged, 'username' : username});
   });
 
   app.get('/fail', function(req, res) {
@@ -26,14 +33,9 @@ module.exports = function(app, passport) {
   app.get('/compose', loggedIn, function(req, res) {
     logged = 0;
     username = "";
-    console.log("Yo");
     if(req.isAuthenticated()) {
-      console.log(req.session);
-      console.log('In');
       logged = 1;
       username = req.user.login
-      console.log(logged);
-      console.log(username);
     }
     res.render('compose.ejs', {'logged' : logged, 'username' : username});
   });
@@ -55,15 +57,9 @@ module.exports = function(app, passport) {
   app.get('/', function(req, res) {
     logged = 0;
     username = "";
-    console.log("Hello")
-    console.log("req.user");
     if(req.isAuthenticated()) {
-      console.log(req.session);
-      console.log('In');
       logged = 1;
       username = req.user.login
-      console.log(logged);
-      console.log(username);
     }
     res.render('index.ejs', {'logged' : logged, 'username' : username});
   });
