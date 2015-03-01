@@ -80,26 +80,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     </div>
 
     <div id="vs-container" class="vs-container">
-    {% if messages.length %}
-      <header class="vs-header">
-        <h1>Inbox<span></span></h1>
-        <ul class="vs-nav">
-          {% for x in messages %}
-            <li><a href="#section-{{ loop.index + 1}}">{{ x }}></a></li>
-          {% endfor %}
-      </header>
-      <div class="vs-wrapper">
-        {% for x in messages %}
-        <section id="section-{{ loop.index + 1}}">
-          <div class="vs-content">
-            <h2>{{ x }}</h2>
-          </div>
-        </section>
-        {% endfor %>
-      </div>
-    {% else %}
-
-      <h3>No messages found. Here is some sample data</h3>
+    {% if !messages.length %}
       <header class="vs-header">
         <h1>Inbox<span></span></h1>
         <ul class="vs-nav">
@@ -160,6 +141,23 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
             </div>
           </div>
         </section>
+      </div>
+    {% else %}
+      <header class="vs-header">
+        <h1>Inbox<span></span></h1>
+        <ul class="vs-nav">
+          {% for x in messages %}
+            <li><a href="#section-{{ loop.index + 1}}">{{ x }}></a></li>
+          {% endfor %}
+      </header>
+      <div class="vs-wrapper">
+        {% for x in messages %}
+        <section id="section-{{ loop.index + 1}}">
+          <div class="vs-content">
+            <h2>{{ x }}</h2>
+          </div>
+        </section>
+        {% endfor %>
       </div>
     {% endif %}
     </div><!-- /vs-container -->
