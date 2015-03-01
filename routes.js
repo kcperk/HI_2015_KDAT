@@ -6,8 +6,8 @@ module.exports = function(app, passport) {
 
   //Main page
   app.get('/main', loggedIn, function(req, res) {
-    logged = false
-    username = ""
+    logged = 0;
+    username = "";
     if(req.isAuthenticated()) {
       console.log(req.session);
       console.log('In');
@@ -25,8 +25,8 @@ module.exports = function(app, passport) {
 
 
   app.get('/compose', loggedIn, function(req, res) {
-    logged = 0
-    username = ""
+    logged = 0;
+    username = "";
     console.log("Yo");
     if(req.isAuthenticated()) {
       console.log(req.session);
@@ -46,7 +46,7 @@ module.exports = function(app, passport) {
 
   app.get('/logout', loggedIn, function(req, res) {
     req.logout();
-    res.redirect('/');
+    res.redirect('/main');
   });
   app.post('/register', passport.authenticate('local-signup', {
       successRedirect: '/main',
@@ -54,9 +54,8 @@ module.exports = function(app, passport) {
   }));
 
   app.get('/', function(req, res) {
-    logged = 0
-    username = ""
-    console.log("Yo");
+    logged = 0;
+    username = "";
     if(req.isAuthenticated()) {
       console.log(req.session);
       console.log('In');
@@ -65,7 +64,7 @@ module.exports = function(app, passport) {
       console.log(logged);
       console.log(username);
     }
-    res.render('index.ejs', {'logged' : logged, 'username' : username});
+    res.render('index.ejs', {'loggedIn' : logged, 'username' : username});
   });
 
   // Route for everything else.
