@@ -7,6 +7,7 @@ var flash    = require('connect-flash');
 var cookieParser = require('cookie-parser')
 var MongoStore = require('connect-mongo')(session);
 var swig = require('swig');
+var favicon = require('serve-favicon');
 
 
 var db = require('./db.js');
@@ -28,6 +29,7 @@ app.use(session({
   saveUninitialized: false}));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(favicon(__dirname + '/views/favicon.ico'));
 
 app.use(flash());
 app.engine('html', swig.renderFile);
