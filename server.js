@@ -5,25 +5,29 @@ var session  = require('express-session');
 var bodyParser = require('body-parser');
 var flash    = require('connect-flash');
 var cookieParser = require('cookie-parser')
+var MongoStore = require('connect-mongo')(session);
 
 
-var database = require('./db.js');
+var db = require('./db.js');
 
 var app      = express();
-mongoose.connect(database.url);
+mongoose.connect(db.url);
 
 var port     = process.env.PORT || 1337;
 
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser('sosecret'));
 //Setup Passport to save sessions
 app.use(session({
   secret: 'sosecret',  // session secret
-  cookie: { maxAge: 60000, secure: false },
+  cookie: { maxAge: 6000000000, secure: false },
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
   resave: false,
   saveUninitialized: false}));
-app.use(cookieParser('sosecret'));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(flash());
 app.set('view engine', 'ejs');
 

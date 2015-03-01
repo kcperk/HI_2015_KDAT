@@ -9,6 +9,7 @@ module.exports = function(app, passport) {
     logged = false
     username = ""
     if(req.isAuthenticated()) {
+      console.log(req.session);
       console.log('In');
       logged = 1;
       username = req.user.username
@@ -19,7 +20,7 @@ module.exports = function(app, passport) {
   });
 
   app.get('/fail', function(req, res) {
-    res.render('fail.html');
+    res.render('fail.ejs');
   });
 
 
@@ -46,6 +47,7 @@ module.exports = function(app, passport) {
     username = ""
     console.log("Yo");
     if(req.isAuthenticated()) {
+      console.log(req.session);
       console.log('In');
       logged = 1;
       username = req.user.username
