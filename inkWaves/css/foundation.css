@@ -1349,9 +1349,9 @@ meta.foundation-mq-topbar {
   width: auto;
   transition: left 300ms ease-out; }
   .top-bar-section ul {
-    padding: 0;
+    padding-left: 0;
     width: 100%;
-    height: auto;
+    height: 0;
     display: block;
     font-size: 16px;
     margin: 0; }

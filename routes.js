@@ -44,7 +44,7 @@ module.exports = function(app, passport) {
 
   app.post('/login', passport.authenticate('local-login', {
       successRedirect: '/main',
-      failureRedirect: '/fail'
+      failureRedirect: '/'//
   }));
 
   app.get('/logout', loggedIn, function(req, res) {
@@ -53,7 +53,7 @@ module.exports = function(app, passport) {
   });
   app.post('/register', passport.authenticate('local-signup', {
       successRedirect: '/main',
-      failureRedirect: '/fail'
+      failureRedirect: '/'//
   }));
 
 

@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Meta setup - Required for apple device -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   
- <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>InkWave</title>
+    <!-- Title -->
+    <title>Compose Letter </title>
+  
+    <!-- Required javascript -->
+    <script src="js/min/jquery-v1.11.0.min.js"></script>
+
+    <!-- Penplate -->
+    <link href="css/penplate.css" rel="stylesheet" type="text/css">
+    <script src="js/min/penplate.min.js"></script>
+
+
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/custom.css" />
     <link rel="stylesheet" href="foundation-icons/foundation-icons.css" />
@@ -13,41 +24,52 @@
     <script src="js/vendor/jquery.js" />
     <script src="js/foundation/foundation.js" />
     <script src="js/foundation/foundation.reveal.js"></script>
-    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="css/froala_editor.min.css" rel="stylesheet" type="text/css">
-    <link href="css/froala_style.min.css" rel="stylesheet" type="text/css">
 
+  
+  <!-- Custom styles -->
+  <style>
+  html {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    background-color: #fff;
+  }
+  body {
+    margin: 0px;
+    padding: 0px;
+  }
 
-    <style>
-        body {
-            text-align: center;
-        }
+  h3 {
 
-        .question{
+    margin-top: 2em;
+    text-align: center;
 
-            text-align: center;
-            margin-top: 2em;
+  }
+  h2 {
+    align: left;
+    margin: 0px;
+    padding: 60px 0px 20px 0px;
+  }
+  h2, .penplate {
+    margin: 0px auto;
+    width: 700px;
+  }
+  .penplate {
+    min-height: 20px;
+    padding-bottom: 80px;
+    line-height: 24px;
+  }
+  </style>
 
-        }
-
-
-        section {
-            width: 100%;
-            margin: auto;
-            text-align: left;
-        }
-    </style>
 </head>
-
 <body>
 
-    <div id="top"></div>
+ <div id="top"></div>
     <div class="contain-to-grid sticky">
         <nav class="top-bar" data-topbar>
             <ul class="title-area">
                 <li class="name">
                     <h1>
-                        <a href="/main">InkWave</a>
+                        <a href="#">InkWave</a>
                     </h1>
                 </li>
                 <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
@@ -58,63 +80,12 @@
                 </li>
             </ul>
             <section class="top-bar-section">
-              <% if (logged === 1) { %>
-                <ul id="nav" class="left">
-                  <li>
-                    <a href= "#"><%= username %></a>
-                  </li>
-                </ul>
-              <% } %>
                 <!-- Right Nav Section -->
                 <ul id="nav" class="right">
                     <li>
-                        <a href="/main">Home</a>
+                        <a href="#top">Home</a>
                     </li>
 
-                    <% if (logged === 0) { %>
-                      <li>
-                        <a href="#" data-reveal-id="myModal">Login/Signup</a>
-
-                          <div id="myModal" class="reveal-modal tiny" data-reveal>
-                            <form action = "login" method = "post">
-                              <div class = "login">
-                                <input type = "text" name = "username" placeholder = "Username " />
-                                <input type = "password" name = "password" placeholder = "Password" />
-                                <!-- Rounded Button Group -->
-                                <ul class="button-group round even-2">
-                                  <button type="submit" value="Login">Login</button>
-                                   <a href="#" data-reveal-id="secondModal" class="secondary button">Sign Up</a>
-                                </u1>
-                              </div>
-                            </form>
-                          </div>
-                              <!-- <a class="close-reveal-modal">&#215;</a> */ -->
-
-
-                          <div id="secondModal" class="reveal-modal tiny" data-reveal>
-                              <form action = "register" method = "post">
-                                <div class = "login">
-                                  <p> Pick a User Name and Password </p>
-                                  <input type = "text" name = "username" placeholder = "Username " />
-                                  <input type = "password" name = "password" placeholder = "Password" />
-                                  <input type = "password" name = "pass2" placeholder = "Confirm Password" />
-                                  <!-- Rounded Button Group -->
-                                  <ul class="button-group round even-2">
-                                    <button type="submit" value="Register">Register</button>
-                                    <a href="#" data-reveal-id="myModal" class="secondary button">Back</a>
-                                  </u1>
-                                </div>
-                              </form>
-                          </div>
-                      </li>
-                    <% } else {%>
-
-                      <li>
-                        <form action = "/logout" method = "get">
-                          <button tpye="submit" value = "Logout">Logout</button>
-                        </form>
-                      </li>
-                    <% } %>
 
                 </ul>
 
@@ -122,54 +93,22 @@
         </nav>
     </div>
 
+  <h3> Insert Question </h3>
 
-<div class = "question">
-<h3> Insert Question Here </h3>
-</div>
-
-<div class = "row">
-  <section id="editor" >
-      <div id='edit' style="margin-top: 30px;">
-        
-        <h1> Just start typing! </h1>
-        <p> Try to answer the question, if you don't like it. Get another one! </p>
-
-       
-      </div>
-  </section>
+  <!-- Penplate example -->
+  <h2>Just Start Writing!</h2>
+  <div class="penplate">
+    <p>Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipiscing elit. Donec quis mauris mi. Quisque sodales vel orci eu consequat. Morbi lacinia, ligula sit amet commodo interdum, ligula tortor rhoncus elit, quis pretium orci nunc nec nisi. Nunc ultrices dui et erat elementum, vel ultricies erat pellentesque. Sed pretium libero ullamcorper turpis malesuada pretium. Fusce vitae ultrices massa. Morbi mollis erat at urna imperdiet, sit amet malesuada lacus pulvinar. Quisque aliquam lacus velit.</p>
   </div>
 
-  <div class = "row">
-  <a href="#" class="button radius">Send</a>
-  </div>
-
-
-
-  <script src="js/libs/jquery-1.11.1.min.js"></script>
-  <script src="js/froala_editor.min.js"></script>
-  <!--[if lt IE 9]>
-    <script src="../js/froala_editor_ie8.min.js"></script>
-  <![endif]-->
-  <script src="js/plugins/tables.min.js"></script>
-  <script src="js/plugins/urls.min.js"></script>
-  <script src="js/plugins/lists.min.js"></script>
-  <script src="js/plugins/colors.min.js"></script>
-  <script src="js/plugins/font_family.min.js"></script>
-  <script src="js/plugins/font_size.min.js"></script>
-  <script src="js/plugins/block_styles.min.js"></script>
-  <script src="js/plugins/media_manager.min.js"></script>
-  <script src="js/plugins/video.min.js"></script>
-  <script src="js/plugins/char_counter.min.js"></script>
-
-  <script>
-      $(function(){
-        $('#edit').editable({inlineMode: false})
-      });
-  </script>
-
-
-
-
+  <!-- Execute Penplate -->
+    <script>
+    // Execute
+  $(document).ready(function()
+  {
+    $('.penplate').penplate();
+  });
+    </script>
 
 </body>
 </html>
