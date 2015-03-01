@@ -8,15 +8,20 @@
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/custom.css" />
     <link rel="stylesheet" href="foundation-icons/foundation-icons.css" />
-    <script src="js/vendor/modernizr.js"></script>
-    
+     <script src="js/vendor/modernizr.js"></script>
+    <script src="js/vendor/fastclick.js" />
+    <script src="js/vendor/jquery.js" />
+    <script src="js/foundation/foundation.js" />
+    <script src="js/foundation/foundation.reveal.js"></script>
+
+
 
 </head>
 
 <body>
     <div id="top"></div>
     <div class="contain-to-grid sticky">
-        <nav class="top-bar" data-topbar>
+              <nav class="top-bar" data-topbar>
             <ul class="title-area">
                 <li class="name">
                     <h1>
@@ -38,14 +43,35 @@
                     </li>
 
                     <li>
-                        <a href="#register">Register</a>
+
+                        <a href="#" data-reveal-id="myModal">Login</a>
+
+                        <div id="myModal" class="reveal-modal tiny" data-reveal>
+                        
+                            <div class = "login">
+                            <input type = "text" placeholder = "Username " />
+                            <input type = "password" placeholder = "Password" />
+                            <a href="#" class="button round small"> Login </a> 
+                            </div>
+                            
+                            <!-- <a class="close-reveal-modal">&#215;</a> */ -->
+                        </div>
+
                     </li>
-                   
+
+
+
+                    <li>
+                        <a href="/register.html">Register</a>
+                    </li>
+
                 </ul>
 
             </section>
-        </nav>
-    </div>
+        </nav>       
+
+
+           </div>
    
 
 
@@ -60,15 +86,17 @@
 
     .welcome {
 
+
         margin-top: 3em;
-        margin-left: 45%;
+        text-align: center;
+
 
     }
 
     .submit {
 
         margin-top: 7em;
-        margin-left: 27em;
+        text-align: center;
 
 
     }
@@ -97,7 +125,7 @@
                 <div class = "register">
                     <div class = "medium-4 columns">
 
-                        <input type = "text" placeholder = "Password" />
+                        <input type = "password" placeholder = "Password" />
 
                     </div>
                 </div>
