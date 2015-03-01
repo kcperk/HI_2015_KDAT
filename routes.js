@@ -13,17 +13,12 @@ module.exports = function(app, passport) {
       logged = 1;
       username = req.user.login
     }
-    res.render('index.ejs', {'logged' : logged, 'username' : username});
+    res.render('index.html', {'logged' : logged, 'username' : username});
   });
 
-  //Inbox
-  app.get('/inbox', loggedIn, function(req, res) {
-    username = req.user.login
-    inbox.display(res, username);
-  });
 
   app.get('/fail', function(req, res) {
-    res.render('fail.ejs');
+    res.render('fail.html');
   });
 
 
@@ -64,7 +59,7 @@ module.exports = function(app, passport) {
       logged = 1;
       username = req.user.login
     }
-    res.render('index.ejs', {'logged' : logged, 'username' : username});
+    res.render('index.html', {'logged' : logged, 'username' : username});
   });
 
   app.use(express.static(__dirname + '/inkWaves'));

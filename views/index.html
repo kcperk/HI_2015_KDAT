@@ -1,0 +1,228 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InkWave</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="foundation-icons/foundation-icons.css" />
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/vendor/fastclick.js" />
+    <script src="js/vendor/jquery.js" />
+    <script src="js/foundation/foundation.js" />
+  	<script src="js/foundation/foundation.reveal.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />`
+
+</head>
+
+<style>
+
+.login {
+
+	text-align: center;
+}
+
+
+
+</style>
+
+
+<body>
+    <div id="top"></div>
+    <div class="contain-to-grid sticky">
+        <nav class="top-bar" data-topbar>
+            <ul class="title-area">
+                <li class="name">
+                    <h1>
+                        <a href="/main">InkWave</a>
+                    </h1>
+                </li>
+                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                <li class="toggle-topbar menu-icon">
+                    <a href="#">
+                        <span>Menu</span>
+                    </a>
+                </li>
+            </ul>
+            <section class="top-bar-section">
+
+                <!-- Left Nav Section -->
+                {% if (logged == 1)  %}
+                  <ul id="nav" class="left">
+                    <li>
+                      <a href= "#">{{ username }}</a>
+                    </li>
+                  </ul>
+                {% endif %}
+
+
+                <!-- Right Nav Section -->
+                <ul id="nav" class="right">
+                    <li>
+                        <form action = "/main" method = "get">
+                          <button tpye="submit" value = "Home">Home</button>
+                        </form>
+                    </li>
+
+                    {% if (logged == 0) %}
+                      <li>
+                      	<form action="#" data-reveal-id="myModal"><button tpye="submit" value = "Home">Login/Signup</button></form>
+
+                          <div id="myModal" class="reveal-modal tiny" data-reveal>
+                            <form action = "login" method = "post">
+                              <div class = "login">
+                              	<input type = "text" name = "username" placeholder = "Username " />
+                              	<input type = "password" name = "password" placeholder = "Password" />
+                                <!-- Rounded Button Group -->
+                                <ul class="button-group round even-2">
+                                  <button type="submit" value="Login">Login</button>
+                              	   <a href="#" data-reveal-id="secondModal" class="secondary button">Sign Up</a>
+                                </u1>
+                              </div>
+                            </form>
+                          </div>
+                              <!-- <a class="close-reveal-modal">&#215;</a> */ -->
+
+
+                          <div id="secondModal" class="reveal-modal tiny" data-reveal>
+                              <form action = "register" method = "post">
+                                <div class = "login">
+                                  <p> Pick a User Name and Password </p>
+                                  <input type = "text" name = "username" placeholder = "Username " />
+                                  <input type = "password" name = "password" placeholder = "Password" />
+                                  <input type = "password" name = "pass2" placeholder = "Confirm Password" />
+                                  <!-- Rounded Button Group -->
+                                  <ul class="button-group round even-2">
+                                    <button type="submit" value="Register">Register</button>
+                                    <a href="#" data-reveal-id="myModal" class="secondary button">Back</a>
+                                  </u1>
+                                </div>
+                              </form>
+                          </div>
+                      </li>
+                    {%  else %}
+                      <li>
+                          <form action = "/inbox" method = "get">
+                            <button tpye="submit" value = "Inbox">Inbox</button>
+                          </form>
+                      </li>
+
+
+
+
+                      <li>
+                        <form action = "/logout" method = "get">
+                          <button tpye="submit" value = "Logout">Logout</button>
+                        </form>
+                      </li>
+                    {% endif %}
+
+                </ul>
+
+            </section>
+        </nav>
+    </div>
+    <section class="jumbo">
+        <div class="row">
+            <div class="large-12 columns">
+                <h1> We Love to Connect </h1>
+                <p class="text-center">
+                  {% if (logged == 1)  %}
+                    <a href="/compose" class="large round button">Compose</a>
+                  {%  else %}
+                    <a href="#" data-reveal-id= "myModal" class="large round button">Compose</a>
+                  {% endif %}
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="row">
+            <div class="small-12 large-12 columns">
+                <div class="text-center">
+                    <h2> Connecting You With Others </h2>
+                    <p> Start an exchange with someone - people that want to
+                        converse. Share about your interests and talk about
+                        things that matter to you. </p>
+                </div>
+                <div>
+                    <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+                        <li>
+                            <img src="img/test3.jpg" alt="test3" />
+                            <h3 class="text-center"> Step One </h3>
+                            <p>Sign up! Choose a username that would suit you.
+                                Input a password and you're good to go!
+                            </p>
+                        </li>
+                        <li>
+                            <img src="img/image2.jpg" alt="image2" />
+                            <h3 class="text-center"> Step Two </h3>
+                            <p>Write your first letter! Hit the compose
+                                button and you will be redirected
+                                to The Desk. You will then be asked
+                                to choose a starter question. Choose one
+                                that interests you and a person who
+                                shares the same interest will receive
+                                the letter.
+                              </p>
+                        </li>
+                        <li>
+                            <img src="img/step3.jpg" alt="step3" />
+                            <h3 class="text-center"> Step Three </h3>
+                            <p>Once the recepient has replied to your letter
+                              it will be sent to your Inbox. There you can
+                              read the letters your receive, and respond to
+                              them.
+                              </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="copy">
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="large-4 pull-1 columns text-center">
+                        <p>&copy; InkWaves is a product of penp.al </p>
+                    </div>
+                    <div class="large-7 push-2 columns text-center">
+                        <!-- Please Leave this link out of respect for the designer -->
+                        <p>Designed By:
+                            <a href="http://tarunraj.me"> Tarun Web Design </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
+    <script>
+        $(function() {
+            $('a[href*=#]:not([href=#])').click(function() {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

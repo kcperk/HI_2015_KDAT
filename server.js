@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var flash    = require('connect-flash');
 var cookieParser = require('cookie-parser')
 var MongoStore = require('connect-mongo')(session);
+var swig = require('swig');
 
 
 var db = require('./db.js');
@@ -29,10 +30,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(flash());
-app.set('view engine', 'ejs');
+app.engine('html', swig.renderFile);
+
+app.set('view engine', 'html');
 
 
 
+
+require('./inboxRouter.js')(app, passport);
+require('./submitRouter.js')(app, passport);
 require('./routes.js')(app, passport);
 require('./passport.js')(passport);
 

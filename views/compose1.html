@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Meta setup - Required for apple device -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+    <!-- Title -->
+    <title>Compose Letter </title>
+  
+    <!-- Required javascript -->
+    <script src="js/min/jquery-v1.11.0.min.js"></script>
+
+    <!-- Penplate -->
+    <link href="css/penplate.css" rel="stylesheet" type="text/css">
+    <script src="js/min/penplate.min.js"></script>
+
+
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="foundation-icons/foundation-icons.css" />
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/vendor/fastclick.js" />
+    <script src="js/vendor/jquery.js" />
+    <script src="js/foundation/foundation.js" />
+    <script src="js/foundation/foundation.reveal.js"></script>
+
+  
+  <!-- Custom styles -->
+  <style>
+  html {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    background-color: #fff;
+  }
+  body {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  h3 {
+
+    margin-top: 2em;
+    text-align: center;
+
+  }
+  h2 {
+    align: left;
+    margin: 0px;
+    padding: 60px 0px 20px 0px;
+  }
+  h2, .penplate {
+    margin: 0px auto;
+    width: 700px;
+  }
+  .penplate {
+    min-height: 20px;
+    padding-bottom: 80px;
+    line-height: 24px;
+  }
+  </style>
+
+</head>
+<body>
+
+ <div id="top"></div>
+    <div class="contain-to-grid sticky">
+        <nav class="top-bar" data-topbar>
+            <ul class="title-area">
+                <li class="name">
+                    <h1>
+                        <a href="#">InkWave</a>
+                    </h1>
+                </li>
+                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                <li class="toggle-topbar menu-icon">
+                    <a href="#">
+                        <span>Menu</span>
+                    </a>
+                </li>
+            </ul>
+            <section class="top-bar-section">
+                <!-- Right Nav Section -->
+                <ul id="nav" class="right">
+                    <li>
+                        <a href="#top">Home</a>
+                    </li>
+
+
+                </ul>
+
+            </section>
+        </nav>
+    </div>
+
+  <h3> Insert Question </h3>
+
+  <!-- Penplate example -->
+  <h2>Just Start Writing!</h2>
+  <div class="penplate">
+    <p>Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipiscing elit. Donec quis mauris mi. Quisque sodales vel orci eu consequat. Morbi lacinia, ligula sit amet commodo interdum, ligula tortor rhoncus elit, quis pretium orci nunc nec nisi. Nunc ultrices dui et erat elementum, vel ultricies erat pellentesque. Sed pretium libero ullamcorper turpis malesuada pretium. Fusce vitae ultrices massa. Morbi mollis erat at urna imperdiet, sit amet malesuada lacus pulvinar. Quisque aliquam lacus velit.</p>
+  </div>
+
+  <!-- Execute Penplate -->
+    <script>
+    // Execute
+  $(document).ready(function()
+  {
+    $('.penplate').penplate();
+  });
+    </script>
+
+</body>
+</html>
