@@ -1,0 +1,185 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InkWave</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="foundation-icons/foundation-icons.css" />
+     <script src="js/vendor/modernizr.js"></script>
+    <script src="js/vendor/fastclick.js" />
+    <script src="js/vendor/jquery.js" />
+    <script src="js/foundation/foundation.js" />
+    <script src="js/foundation/foundation.reveal.js"></script>
+
+
+
+</head>
+
+<body>
+    <div id="top"></div>
+    <div class="contain-to-grid sticky">
+              <nav class="top-bar" data-topbar>
+            <ul class="title-area">
+                <li class="name">
+                    <h1>
+                        <a href="#">InkWave</a>
+                    </h1>
+                </li>
+                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                <li class="toggle-topbar menu-icon">
+                    <a href="#">
+                        <span>Menu</span>
+                    </a>
+                </li>
+            </ul>
+            <section class="top-bar-section">
+                <!-- Right Nav Section -->
+                <ul id="nav" class="right">
+                    <li>
+                        <a href="/index.html">Home</a>
+                    </li>
+
+                    <li>
+
+                        <a href="#" data-reveal-id="myModal">Login</a>
+
+                        <div id="myModal" class="reveal-modal tiny" data-reveal>
+                        
+                            <div class = "login">
+                            <input type = "text" placeholder = "Username " />
+                            <input type = "password" placeholder = "Password" />
+                            <a href="#" class="button round small"> Login </a> 
+                            </div>
+                            
+                            <!-- <a class="close-reveal-modal">&#215;</a> */ -->
+                        </div>
+
+                    </li>
+
+
+
+                    <li>
+                        <a href="/register.html">Register</a>
+                    </li>
+
+                </ul>
+
+            </section>
+        </nav>       
+
+
+           </div>
+   
+
+
+    <style>
+
+    .register  {
+    
+        margin-right: -50%;
+        margin-top: 2em;
+    
+    }
+
+    .welcome {
+
+
+        margin-top: 3em;
+        text-align: center;
+
+
+    }
+
+    .submit {
+
+        margin-top: 7em;
+        text-align: center;
+
+
+    }
+
+
+    </style>
+    
+    <section id="registration">
+    
+    <form class = "custom">
+    
+
+        <div class = "welcome">
+            <label> Pick a Username and Password </label>
+        </div>
+
+            <div class = "row">
+                <div class = "register">
+                    <div class = "medium-4 columns">
+
+                        <input type = "text" placeholder = "Username" />
+
+                    </div>
+                </div>
+            
+                <div class = "register">
+                    <div class = "medium-4 columns">
+
+                        <input type = "password" placeholder = "Password" />
+
+                    </div>
+                </div>
+
+                <div class = "submit" >
+                    <a href="#" class="button round">Register</a>
+                </div>
+            </div>
+        
+    </form>
+    </section>
+    
+
+
+    </section>
+   
+        <div class="copy">
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="large-4 pull-1 columns text-center">
+                        <p>&copy; InkWave is a product of penp.al</p>
+                    </div>
+                    <div class="large-7 push-2 columns text-center">
+                        <!-- Please Leave this link out of respect for the designer -->
+                        <p>Designed By:
+                            <a href="https://tarunraj.me">Tarun Web Design</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
+    <script>
+        $(function() {
+            $('a[href*=#]:not([href=#])').click(function() {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

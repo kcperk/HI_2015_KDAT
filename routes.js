@@ -6,30 +6,49 @@ module.exports = function(app, passport) {
 
   //Main page
   app.get('/main', loggedIn, function(req, res) {
-    res.sendFile(__dirname + '/inkWaves/main.html');
+    logged = false
+    username = ""
+    if(req.isAuthenticated()) {
+      console.log('In');
+      logged = 1;
+      username = req.user.username
+      console.log(logged);
+      console.log(username);
+    }
+    res.render('index.ejs', {'loggedIn' : logged, 'username' : username});
   });
 
   app.get('/fail', function(req, res) {
-    res.sendFile(__dirname + '/inkWaves/fail.html');
+    res.render('fail.html');
   });
 
 
   app.get('/compose', loggedIn, function(req, res) {
-    res.sendFile(__dirname + '/inkWaves/main.html')
+    res.render('compose.ejs')
   });
 
-  app.post('/login',  passport.authenticate('local-login', {
+  app.post('/login', passport.authenticate('local-login', {
       successRedirect: '/main',
       failureRedirect: '/fail'
   }));
 
-  app.post('/register',   passport.authenticate('local-signup', {
+  app.post('/register', passport.authenticate('local-signup', {
       successRedirect: '/main',
       failureRedirect: '/fail'
   }));
 
-  app.get('/', loggedIn, function(req, res) {
-    res.sendFile(__dirname + '/inkWaves/index.html')
+  app.get('/', function(req, res) {
+    logged = 0
+    username = ""
+    console.log("Yo");
+    if(req.isAuthenticated()) {
+      console.log('In');
+      logged = 1;
+      username = req.user.username
+      console.log(logged);
+      console.log(username);
+    }
+    res.render('index.ejs', {'logged' : logged, 'username' : username});
   });
 
   // Route for everything else.

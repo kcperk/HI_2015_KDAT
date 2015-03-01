@@ -23,23 +23,29 @@ module.exports = function(passport) {
       passwordField: 'password',
       },
       function (username, password, done) {
-        console.log("In Register");
+        console.log(username);
+        console.log(password);
           User.findOne({ 'login' :  username }, function(err, user) {
+            if (err)
+                        return(err);
             if (user) {
               console.log("Failed1");
-              return done(null, false);
+              return done(null, false, 'saf');
             } else {
+              console.log("The user does not exist");
                 var newUser         = new User();
                 newUser.login       = username;
                 newUser.password    = newUser.generateHash(password);
 
                 // save the user
                 newUser.save(function(err) {
+                  if (err)
+                        throw err;
                   console.log("Succeed");
-                  return done(null, newUser);
+                  return done(null, newUser, 'sadf');
                 });
             }
-          })
+          });
     }));
 
     passport.use('local-login', new LocalStrategy({
@@ -49,16 +55,18 @@ module.exports = function(passport) {
       function (username, password, done) {
         console.log("In Login");
           User.findOne({ 'login' :  username }, function(err, user) {
+            if (err)
+                        throw(err);
             if (!user) {
               console.log("Failed1");
-              return done(null, false);
+              return done(null, false, 'asdf');
             }
             if (!user.validPassword(password)) {
               console.log("Failed2");
-              return done(null, false);
+              return done(null, false, 'sdaf');
             }
             console.log("Succeed");
-            return done(null, user);
+            return done(null, user, 'asdf');
         });
     }));
 };
