@@ -38,6 +38,10 @@ html,
 body {
   font-size: 100%; }
 
+label1 {
+  font-size: 150%;
+}
+
 body {
   background: white;
   color: #222222;
@@ -858,6 +862,7 @@ select {
     position: relative;
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
+    padding-top: 3.2rem;
     float: left; }
 
   .large-1 {
@@ -897,7 +902,7 @@ select {
     width: 100%; }
 
   .large-offset-0 {
-    margin-left: 0% !important; }
+    margin-left: 50% !important; }
 
   .large-offset-1 {
     margin-left: 8.33333% !important; }
@@ -1101,7 +1106,7 @@ button, .button {
   padding-bottom: 1.0625rem;
   padding-left: 2rem;
   font-size: 1rem;
-  background-color: #008cba;
+  background-color: #bc0000;
   border-color: #007095;
   color: white;
   transition: background-color 300ms ease-out; }
@@ -3034,33 +3039,28 @@ ul.pagination {
       font-weight: bold;
       text-transform: uppercase; }
 
-/* 
-  Mixin: accordion-container() 
-
+/*
+  Mixin: accordion-container()
   Decription: Responsible for the container component of accordions, generating styles relating to a margin of zero and a clearfix
-
-  Explicit Dependencies: a clearfix mixin *is* defined. 
-
-  Implicit Dependencies: None 
-
+  Explicit Dependencies: a clearfix mixin *is* defined.
+  Implicit Dependencies: None
 */
 /*
   Mixin: accordion-navigation( $bg, $hover-bg, $active-bg, $padding, $active_class,  $font-color, $font-size, $font-family){
-  
+
     @params $bg-color: [ color or string ]: Specify the background color for the navigation element
     @params $hover-bg-color [ color or string ]: Specify the background color for the navigation element when hovered
-    @params $active-bg [ color or string ]: Specify the background color for the navigation element when clicked and not released. 
-    @params $active_class [ string ]: Specify the class name used to keep track of which accordion tab should be visible 
-    @params $font-color [ color or string ]: Color of the font for accordion 
-    @params $font-size [ number ]: Specifiy the font-size of the text inside the navigation element 
+    @params $active-bg [ color or string ]: Specify the background color for the navigation element when clicked and not released.
+    @params $active_class [ string ]: Specify the class name used to keep track of which accordion tab should be visible
+    @params $font-color [ color or string ]: Color of the font for accordion
+    @params $font-size [ number ]: Specifiy the font-size of the text inside the navigation element
     @params $font-family [ string ]: Specify the font family for the text of the navigation of the accorion
 */
 /*
-
-  Mixin: accordion-content($bg, $padding, $active-class) 
-    @params $padding [ number ]: Padding for the content of the container 
-    @params $bg [ color  ]: Background color for the content when it's visible 
-    @params $active_class [ string ]: Class name used to keep track of which accordion tab should be visible. 
+  Mixin: accordion-content($bg, $padding, $active-class)
+    @params $padding [ number ]: Padding for the content of the container
+    @params $bg [ color  ]: Background color for the content when it's visible
+    @params $active_class [ string ]: Class name used to keep track of which accordion tab should be visible.
 */
 .accordion {
   margin-bottom: 0; }
