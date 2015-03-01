@@ -147,17 +147,20 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
         <h1>Inbox<span></span></h1>
         <ul class="vs-nav">
           {% for x in messages %}
-            <li><a href="#section-{{ loop.index + 1}}">{{ x }}></a></li>
+            <li><a href="#section-{{ loop.index + 1}}">Message {{ loop.index + 1 }}</a></li>
           {% endfor %}
       </header>
       <div class="vs-wrapper">
         {% for x in messages %}
         <section id="section-{{ loop.index + 1}}">
           <div class="vs-content">
-            <h2>{{ x }}</h2>
+            <h2>{{ x.subject }}</h2>
+            <div class="col">
+              <p>{{ x.body }}</p>
+            </div>
           </div>
         </section>
-        {% endfor %>
+        {% endfor %}
       </div>
     {% endif %}
     </div><!-- /vs-container -->
