@@ -6,7 +6,8 @@ var userSchema = mongoose.Schema({
     password: String,
     name: String,
     level: Number,
-    likes: [String]
+    likes: [String],
+    connections: [String]
 });
 
 userSchema.methods.generateHash = function(password) {
