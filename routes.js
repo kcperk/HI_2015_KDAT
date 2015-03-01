@@ -50,7 +50,7 @@ module.exports = function(app, passport) {
       console.log(req.session);
       console.log('In');
       logged = 1;
-      username = req.user.username
+      username = req.user
       console.log(logged);
       console.log(username);
     }
