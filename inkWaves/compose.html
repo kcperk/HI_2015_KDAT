@@ -1,8 +1,8 @@
-<!doctype html>
-<html class="no-js" lang="en">
-
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8" />
+  
+ <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>InkWave</title>
     <link rel="stylesheet" href="css/foundation.css" />
@@ -13,12 +13,35 @@
     <script src="js/vendor/jquery.js" />
     <script src="js/foundation/foundation.js" />
     <script src="js/foundation/foundation.reveal.js"></script>
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/froala_editor.min.css" rel="stylesheet" type="text/css">
+    <link href="css/froala_style.min.css" rel="stylesheet" type="text/css">
 
 
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .question{
+
+            text-align: center;
+            margin-top: 2em;
+
+        }
+
+
+        section {
+            width: 100%;
+            margin: auto;
+            text-align: left;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="top"></div>
+
+   <div id="top"></div>
     <div class="contain-to-grid sticky">
         <nav class="top-bar" data-topbar>
             <ul class="title-area">
@@ -38,101 +61,100 @@
                 <!-- Right Nav Section -->
                 <ul id="nav" class="right">
                     <li>
-                        <a href="/index.html">Home</a>
+                        <a href="#top">Home</a>
                     </li>
-
 
                     <li>
 
-                        <a href="#" data-reveal-id="myModal">Login/Signup</a>
+                      <a href="#" data-reveal-id="myModal">Login/Signup</a>
 
                         <div id="myModal" class="reveal-modal tiny" data-reveal>
-
+                          <form action = "login" method = "post">
                             <div class = "login">
-                                <input type = "text" placeholder = "Username " />
-                                <input type = "password" placeholder = "Password" />
-                                <a href="#" class="button"> Login </a>
-                                <a href="#" data-reveal-id="secondModal" class="secondary button">Sign Up</a>
+                              <input type = "text" name = "username" placeholder = "Username " />
+                              <input type = "password" name = "password" placeholder = "Password" />
+                              <!-- Rounded Button Group -->
+                              <ul class="button-group round even-2">
+                                <button type="submit" value="Login">Login</button>
+                                 <a href="#" data-reveal-id="secondModal" class="secondary button">Sign Up</a>
+                              </u1>
                             </div>
-
+                          </form>
                         </div>
                             <!-- <a class="close-reveal-modal">&#215;</a> */ -->
 
 
                         <div id="secondModal" class="reveal-modal tiny" data-reveal>
-                            <div class = "login">
-                            <p> Pick a User Name and Password </p>
-                            <input type = "text" placeholder = "Username " />
-                            <input type = "password" placeholder = "Password" />
-                            <input type = "password" placeholder = "Confirm Password" />
-                            <a href="#" class="button"> Register </a>
-                            <a href="#" data-reveal-id="myModal" class="secondary button">Log In</a>
-                            </div>
-
+                            <form action = "register" method = "post">
+                              <div class = "login">
+                                <p> Pick a User Name and Password </p>
+                                <input type = "text" name = "username" placeholder = "Username " />
+                                <input type = "password" name = "password" placeholder = "Password" />
+                                <input type = "password" name = "pass2" placeholder = "Confirm Password" />
+                                <!-- Rounded Button Group -->
+                                <ul class="button-group round even-2">
+                                  <button type="submit" value="Register">Register</button>
+                                  <a href="#" data-reveal-id="myModal" class="secondary button">Back</a>
+                                </u1>
+                              </div>
+                            </form>
                         </div>
                     </li>
+
+
                 </ul>
 
             </section>
         </nav>
     </div>
 
+<div class = "question">
+<h3> Insert Question Here </h3>
+</div>
 
-    <section id="write">
-        <div> </div>
-        <div class="row">
-            <div class="large-12 columns">
-                <label1> Compose to Pal
-                    <textarea placeholder="Write Here!" rows='30' draggable="false"></textarea>
-                </label1>
+<div class = "row">
+  <section id="editor" >
+      <div id='edit' style="margin-top: 30px;">
+        
+        <h1> Just start typing! </h1>
+        <p> Try to answer the question, if you don't like it. Get another one! </p>
 
-            </div>
+       
+      </div>
+  </section>
+  </div>
 
-            <a href="#" class="button radius">Send</a>
-        </div>
+  <div class = "row">
+  <a href="#" class="button radius">Send</a>
+  </div>
 
 
-    </section>
+
+  <script src="js/libs/jquery-1.11.1.min.js"></script>
+  <script src="js/froala_editor.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../js/froala_editor_ie8.min.js"></script>
+  <![endif]-->
+  <script src="js/plugins/tables.min.js"></script>
+  <script src="js/plugins/urls.min.js"></script>
+  <script src="js/plugins/lists.min.js"></script>
+  <script src="js/plugins/colors.min.js"></script>
+  <script src="js/plugins/font_family.min.js"></script>
+  <script src="js/plugins/font_size.min.js"></script>
+  <script src="js/plugins/block_styles.min.js"></script>
+  <script src="js/plugins/media_manager.min.js"></script>
+  <script src="js/plugins/video.min.js"></script>
+  <script src="js/plugins/char_counter.min.js"></script>
+
+  <script>
+      $(function(){
+        $('#edit').editable({inlineMode: false})
+      });
+  </script>
 
 
-        <div class="copy">
-            <div class="row">
-                <div class="large-12 columns">
-                    <div class="large-4 pull-1 columns text-center">
-                        <p>&copy; InkWave is a product of penp.al</p>
-                    </div>
-                    <div class="large-7 push-2 columns text-center">
-                        <!-- Please Leave this link out of respect for the designer -->
-                        <p>Designed By:
-                            <a href="https://tarunraj.me">Tarun Web Design</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
 
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/foundation.min.js"></script>
-    <script>
-        $(document).foundation();
-    </script>
-    <script>
-        $(function() {
-            $('a[href*=#]:not([href=#])').click(function() {
-                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-                    var target = $(this.hash);
-                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                    if (target.length) {
-                        $('html,body').animate({
-                            scrollTop: target.offset().top
-                        }, 1000);
-                        return false;
-                    }
-                }
-            });
-        });
-    </script>
+
+
 </body>
-
 </html>
