@@ -32,6 +32,10 @@ module.exports = function(app, passport) {
       failureRedirect: '/fail'
   }));
 
+  app.get('/logout', loggedIn, function(req, res) {
+    req.logout();
+    res.redirect('/');
+  });
   app.post('/register', passport.authenticate('local-signup', {
       successRedirect: '/main',
       failureRedirect: '/fail'
