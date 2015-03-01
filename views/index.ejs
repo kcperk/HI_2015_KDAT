@@ -47,6 +47,15 @@
                 </li>
             </ul>
             <section class="top-bar-section">
+                <!-- Left Nav Section -->
+                <% if (logged === 1) { %>
+                  <ul id="nav" class="left">
+                    <li>
+                      <a href= "#"><%= username %></a>
+                    </li>
+                  </ul>
+                <% } %>
+
                 <!-- Right Nav Section -->
                 <ul id="nav" class="right">
                     <li>
@@ -90,9 +99,6 @@
                           </div>
                       </li>
                     <% } else {%>
-                      <li>
-                        <p><%= username %></p>
-                      </li>
 
                       <li>
                         <form action = "/logout" method = "get">
