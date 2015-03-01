@@ -22,12 +22,12 @@ module.exports = function(passport) {
       usernameField: 'username',
       passwordField: 'password',
       },
-      function (req, username, password, done) {
+      function (username, password, done) {
         console.log("In Register");
           User.findOne({ 'login' :  username }, function(err, user) {
             if (user) {
               console.log("Failed1");
-              return done(null, false, req.flash('Error', 'That username is already taken'));
+              return done(null, false);
             } else {
                 var newUser         = new User();
                 newUser.login       = username;
@@ -46,16 +46,16 @@ module.exports = function(passport) {
       usernameField: 'username',
       passwordField: 'password',
       },
-      function (req, username, password, done) {
+      function (username, password, done) {
         console.log("In Login");
           User.findOne({ 'login' :  username }, function(err, user) {
             if (!user) {
               console.log("Failed1");
-              return done(null, false, req.flash("Error", "That username is not in the system"));
+              return done(null, false);
             }
             if (!user.validPassword(password)) {
               console.log("Failed2");
-              return done(null, false, req.flash("Error", "That is not a valid usernam/password combination"));
+              return done(null, false);
             }
             console.log("Succeed");
             return done(null, user);
