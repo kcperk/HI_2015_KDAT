@@ -12,7 +12,7 @@ module.exports = function(app, passport) {
       console.log(req.session);
       console.log('In');
       logged = 1;
-      username = req.user.username
+      username = req.user.login
       console.log(logged);
       console.log(username);
     }
@@ -25,7 +25,18 @@ module.exports = function(app, passport) {
 
 
   app.get('/compose', loggedIn, function(req, res) {
-    res.render('compose.ejs')
+    logged = 0
+    username = ""
+    console.log("Yo");
+    if(req.isAuthenticated()) {
+      console.log(req.session);
+      console.log('In');
+      logged = 1;
+      username = req.user.login
+      console.log(logged);
+      console.log(username);
+    }
+    res.render('compose.ejs', {'logged' : logged, 'username' : username});
   });
 
   app.post('/login', passport.authenticate('local-login', {
@@ -50,7 +61,7 @@ module.exports = function(app, passport) {
       console.log(req.session);
       console.log('In');
       logged = 1;
-      username = req.user
+      username = req.user.login
       console.log(logged);
       console.log(username);
     }

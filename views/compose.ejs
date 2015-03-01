@@ -38,39 +38,61 @@
                 <!-- Right Nav Section -->
                 <ul id="nav" class="right">
                     <li>
-                        <a href="/index.html">Home</a>
+                        <a href="/">Home</a>
                     </li>
 
+                    <% if (logged === 0) { %>
+                      <li>
+                        <p><%= logged %></p>
+                      </li>
+                      <li>
+                      	<a href="#" data-reveal-id="myModal">Login/Signup</a>
 
-                    <li>
+                          <div id="myModal" class="reveal-modal tiny" data-reveal>
+                            <form action = "login" method = "post">
+                              <div class = "login">
+                              	<input type = "text" name = "username" placeholder = "Username " />
+                              	<input type = "password" name = "password" placeholder = "Password" />
+                                <!-- Rounded Button Group -->
+                                <ul class="button-group round even-2">
+                                  <button type="submit" value="Login">Login</button>
+                              	   <a href="#" data-reveal-id="secondModal" class="secondary button">Sign Up</a>
+                                </u1>
+                              </div>
+                            </form>
+                          </div>
+                              <!-- <a class="close-reveal-modal">&#215;</a> */ -->
 
-                        <a href="#" data-reveal-id="myModal">Login/Signup</a>
 
-                        <div id="myModal" class="reveal-modal tiny" data-reveal>
+                          <div id="secondModal" class="reveal-modal tiny" data-reveal>
+                              <form action = "register" method = "post">
+                                <div class = "login">
+                                  <p> Pick a User Name and Password </p>
+                                  <input type = "text" name = "username" placeholder = "Username " />
+                                  <input type = "password" name = "password" placeholder = "Password" />
+                                  <input type = "password" name = "pass2" placeholder = "Confirm Password" />
+                                  <!-- Rounded Button Group -->
+                                  <ul class="button-group round even-2">
+                                    <button type="submit" value="Register">Register</button>
+                                    <a href="#" data-reveal-id="myModal" class="secondary button">Back</a>
+                                  </u1>
+                                </div>
+                              </form>
+                          </div>
+                      </li>
+                    <% } else {%>
 
-                            <div class = "login">
-                                <input type = "text" placeholder = "Username " />
-                                <input type = "password" placeholder = "Password" />
-                                <a href="#" class="button"> Login </a>
-                                <a href="#" data-reveal-id="secondModal" class="secondary button">Sign Up</a>
-                            </div>
+                      <li>
+                        <p><%= username %></p>
+                      </li>
 
-                        </div>
-                            <!-- <a class="close-reveal-modal">&#215;</a> */ -->
+                      <li>
+                        <form action = "/logout" method = "get">
+                          <button tpye="submit" value = "Logout">Logout</button>
+                        </form>
+                      </li>
+                    <% } %>
 
-
-                        <div id="secondModal" class="reveal-modal tiny" data-reveal>
-                            <div class = "login">
-                            <p> Pick a User Name and Password </p>
-                            <input type = "text" placeholder = "Username " />
-                            <input type = "password" placeholder = "Password" />
-                            <input type = "password" placeholder = "Confirm Password" />
-                            <a href="#" class="button"> Register </a>
-                            <a href="#" data-reveal-id="myModal" class="secondary button">Log In</a>
-                            </div>
-
-                        </div>
-                    </li>
                 </ul>
 
             </section>
