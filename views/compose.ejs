@@ -113,13 +113,16 @@
   </div>
 
   <!-- Execute Penplate -->
-    <script>
-    // Execute
-  $(document).ready(function()
-  {
-    $('.penplate').penplate();
-  })(jQuery);
-    </script>
+ <script>
+$(document).ready(function(){
+$('.penplate').penplate({
+breakpoint: '700',
+heading_1_tag : 'h3',
+heading_2_tag : 'h4',
+controls : ['bold', 'italics', 'underline', 'heading_1', 'heading_2', 'quote', 'link']
+});
+});
+</script>   
 
 </body>
 </html>
