@@ -41,13 +41,13 @@
 
 <body>
 
-   <div id="top"></div>
+    <div id="top"></div>
     <div class="contain-to-grid sticky">
         <nav class="top-bar" data-topbar>
             <ul class="title-area">
                 <li class="name">
                     <h1>
-                        <a href="#">InkWave</a>
+                        <a href="/main">InkWave</a>
                     </h1>
                 </li>
                 <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
@@ -58,55 +58,83 @@
                 </li>
             </ul>
             <section class="top-bar-section">
+              <% if (logged === 1) { %>
+                <ul id="nav" class="left">
+                  <li>
+                    <a href= "#"><%= username %></a>
+                  </li>
+                </ul>
+              <% } %>
                 <!-- Right Nav Section -->
                 <ul id="nav" class="right">
                     <li>
-                        <a href="#top">Home</a>
+                        <a href="/main">Home</a>
                     </li>
 
-                    <li>
+                    <% if (logged === 0) { %>
+                      <li>
+                        <a href="#" data-reveal-id="myModal">Login/Signup</a>
 
-                      <a href="#" data-reveal-id="myModal">Login/Signup</a>
-
-                        <div id="myModal" class="reveal-modal tiny" data-reveal>
-                          <form action = "login" method = "post">
-                            <div class = "login">
-                              <input type = "text" name = "username" placeholder = "Username " />
-                              <input type = "password" name = "password" placeholder = "Password" />
-                              <!-- Rounded Button Group -->
-                              <ul class="button-group round even-2">
-                                <button type="submit" value="Login">Login</button>
-                                 <a href="#" data-reveal-id="secondModal" class="secondary button">Sign Up</a>
-                              </u1>
-                            </div>
-                          </form>
-                        </div>
-                            <!-- <a class="close-reveal-modal">&#215;</a> */ -->
-
-
-                        <div id="secondModal" class="reveal-modal tiny" data-reveal>
-                            <form action = "register" method = "post">
+                          <div id="myModal" class="reveal-modal tiny" data-reveal>
+                            <form action = "login" method = "post">
                               <div class = "login">
-                                <p> Pick a User Name and Password </p>
                                 <input type = "text" name = "username" placeholder = "Username " />
                                 <input type = "password" name = "password" placeholder = "Password" />
-                                <input type = "password" name = "pass2" placeholder = "Confirm Password" />
                                 <!-- Rounded Button Group -->
                                 <ul class="button-group round even-2">
-                                  <button type="submit" value="Register">Register</button>
-                                  <a href="#" data-reveal-id="myModal" class="secondary button">Back</a>
+                                  <button type="submit" value="Login">Login</button>
+                                   <a href="#" data-reveal-id="secondModal" class="secondary button">Sign Up</a>
                                 </u1>
                               </div>
                             </form>
-                        </div>
-                    </li>
+                          </div>
+                              <!-- <a class="close-reveal-modal">&#215;</a> */ -->
 
+
+                          <div id="secondModal" class="reveal-modal tiny" data-reveal>
+                              <form action = "register" method = "post">
+                                <div class = "login">
+                                  <p> Pick a User Name and Password </p>
+                                  <input type = "text" name = "username" placeholder = "Username " />
+                                  <input type = "password" name = "password" placeholder = "Password" />
+                                  <input type = "password" name = "pass2" placeholder = "Confirm Password" />
+                                  <!-- Rounded Button Group -->
+                                  <ul class="button-group round even-2">
+                                    <button type="submit" value="Register">Register</button>
+                                    <a href="#" data-reveal-id="myModal" class="secondary button">Back</a>
+                                  </u1>
+                                </div>
+                              </form>
+                          </div>
+                      </li>
+                    <% } else {%>
+
+                      <li>
+                        <form action = "/logout" method = "get">
+                          <button tpye="submit" value = "Logout">Logout</button>
+                        </form>
+                      </li>
+                    <% } %>
 
                 </ul>
 
             </section>
         </nav>
     </div>
+
+
+    <section id="write">
+        <div> </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <label1> Compose to Pal
+                    <textarea placeholder="Write Here!" rows='30' draggable="false"></textarea>
+                </label1>
+
+            </div>
+
+            <a href="#" class="button radius">Send</a>
+        </div>
 
 <div class = "question">
 <h3> Insert Question Here </h3>
